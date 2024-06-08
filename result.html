@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Square Finder App</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </div>
+        <h2 id="msg"> </h2>
+    </div>
+    <script>
+        let msg = document.getElementById("msg");
+        let res = localStorage.getItem("key");
+
+        if (res === null) {
+            msg.innerHTML = "You are trying to trespass!";
+
+            function goBack() {
+                window.location.href = "index.html";
+            }
+            setTimeout(goBack, 5000);
+        } else {
+            msg.innerHTML = "Square is --> " + parseFloat(res).toFixed(2);
+            localStorage.removeItem("key"); // Clear the stored value after use
+        }
+    </script>
+</body>
+
+</html>
